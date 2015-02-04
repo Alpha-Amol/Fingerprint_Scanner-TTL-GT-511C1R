@@ -1,13 +1,15 @@
 /* 
-	FPS_GT511C3.h v1.0 - Library for controlling the GT-511C3 Finger Print Scanner (FPS)
+	FPS_GT511C1R.h v1.0 - Library for controlling the GT-511C1R Finger Print Scanner (FPS)
 	Created by Josh Hawley, July 23rd 2013
 	Licensed for non-commercial use, must include this license message
 	basically, Feel free to hack away at it, but just give me credit for my work =)
 	TLDR; Wil Wheaton's Law
+
+	Updated by Matthew Canham as the original library was written for the 511C3 model not he 511C1R model.
 */
 
-#ifndef FPS_GT511C3_h
-#define FPS_GT511C3_h
+#ifndef FPS_GT511C1R_h
+#define FPS_GT511C1R_h
 
 #include "Arduino.h";
 #include "SoftwareSerial.h";
@@ -153,9 +155,9 @@ class Response_Packet
 
 
 /*
-	Object for controlling the GT-511C3 Finger Print Scanner (FPS)
+	Object for controlling the GT-511C1R Finger Print Scanner (FPS)
 */
-class FPS_GT511C3
+class FPS_GT511C1R
 {
  
  public:
@@ -164,10 +166,10 @@ class FPS_GT511C3
 
 	#pragma region -= Constructor/Destructor =-
 	// Creates a new object to interface with the fingerprint scanner
-	FPS_GT511C3(uint8_t rx, uint8_t tx);
+	FPS_GT511C1R(uint8_t rx, uint8_t tx);
 	
 	// destructor
-	~FPS_GT511C3();
+	~FPS_GT511C1R();
 	#pragma endregion
 
 
@@ -196,12 +198,12 @@ class FPS_GT511C3
 	int GetEnrollCount();
 
 	// checks to see if the ID number is in use or not
-	// Parameter: 0-199
+	// Parameter: 0-19
 	// Return: True if the ID number is enrolled, false if not
 	bool CheckEnrolled(int id);
 
 	// Starts the Enrollment Process
-	// Parameter: 0-199
+	// Parameter: 0-19
 	// Return:
 	//	0 - ACK
 	//	1 - Database is full
